@@ -20,6 +20,6 @@ int main(){
 
     if (check1 == sum) printf("Yes...%d is an Armstrong Number", check1);
     else printf("No...%d is not an Armstrong Number", check1);
-    
+
     return 0;
 }
