@@ -1,0 +1,31 @@
+import turtle   # importing the turtle module
+
+# Basic Turtle Functions
+
+t = turtle.Turtle()         # Creates a turtle
+s = turtle.Screen()         # Creates the canvas
+
+s.bgcolor(bgcolor_name)     # Changes the BackGround Color (black,white(default) etc)
+
+t.speed(speed_value)        # Sets the speed for turtle
+t.shape("shape_name")       # Sets the shape of turtle (circle,square etc)
+t.pencolor("color_name")    # Sets the color of turtle
+t.pensize(size)             # Sets the pen size
+
+
+# Turtle Movements
+
+t.forward(steps)  or  t.fd(steps)    # Moves the turtle forward
+t.backward(steps) or  t.bk(steps)    # Moves the turtle backward
+t.left(degree)    or  t.lt(degree)   # Rotates the turtle to left
+t.right(degree)   or  t.rt(degree)   # Rotates the turtle to right
+t.circle(radius)                     # Draws a circle of provided radius
+t.home()                             # Brings the turtle back to (0,0)
+t.goto(x,y)                          # Moves the turtle to coordinates (x,y)
+
+t.penup()                            # Uplifts the turtle
+t.pendown()                          # Downlifts the turtle
+
+t.fillcolor(color_name)              # Set the color to be filled in a closed shape
+t.begin_fill()                       # Begin the closed shape 
+t.end_fill()                         # End the closed shape
