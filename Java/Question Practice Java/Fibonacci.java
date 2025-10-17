@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class file{
+public class Fibonacci{
     public static int Fibonacci(int lim){
         if (lim <= 1) return lim;
         return Fibonacci(lim - 1) + Fibonacci(lim - 2);

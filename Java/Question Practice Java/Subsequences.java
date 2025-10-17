@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class file{
+public class Subsequences{
     public static void SubSequence(int index, int[] arr, int[] ds){
         if(index == arr.length){
             for (int i = 0; i < ds.length; i++) {
