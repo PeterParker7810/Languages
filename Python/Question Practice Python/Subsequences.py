@@ -12,14 +12,13 @@ def SubSequence(index, arr, sub_seq):
 arr = []
 size = int(input("Enter the no of Elements: "))
 for i in range(size):
-    element = int(input("Enter Element: "))
+    element = int(input("Enter the Element: "))
     arr.append(element)
 
 print("\nOriginal Array: ")
-for i in range(size):
-    print(arr[i], end=" ")
+print(arr)
 
-print("\n\nAll Subsequences: ")
+print("\nAll Subsequences: ")
 result = SubSequence(0, arr, [])
 for subseq in result:
     print(subseq)
