@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class file{
+public class Subsequences_Sum{
     public static void SubSequence(int index, int[] arr, int[] ds, int check, int[] found){
         if(index == arr.length){
             int sum = 0;
