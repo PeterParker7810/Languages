@@ -38,7 +38,7 @@ int main(){
     }
 
     cout<<"\nOriginal Array: ";
-    for (int i = 0; i < size; i++) cout<<vec[i]<<" ";
+    for (auto it : vec) cout<<it<<" ";
     
     cout<<"\n\nEnter number to check: ";
     cin>>check;
