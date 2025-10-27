@@ -1,6 +1,5 @@
 import java.util.Scanner;
-public class file{
-
+public class NQueen{
     public static boolean isSafe(int[][] board, int row, int col, int N) {
         for (int i = 0; i < row; i++) if (board[i][col] == 1) return false;
 
