@@ -21,8 +21,6 @@ int main(){
     cin>>size;
 
     vector<int> arr(size);
-
-    vector<int> dp(size + 1, -1);
     vector<int> solutions;
     for (int i = 0; i < size; i++) {
         cout<<"Enter Element "<<i+1<<": ";
