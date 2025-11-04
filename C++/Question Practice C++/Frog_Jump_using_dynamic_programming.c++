@@ -27,6 +27,7 @@ int main() {
     cin>>size;
 
     vector<int> arr(size);
+    vector<int> dp(size, -1);
     for (int i = 0; i < size; i++) {
         cout<<"Enter the Element: ";
         cin>>arr[i];
@@ -36,9 +37,7 @@ int main() {
     for (int val : arr) cout<<val<<" ";
     cout<<endl;
 
-    vector<int> dp(size, -1);
     int result = FrogJump(size - 1, arr, dp);
-
     cout<<"\nMinimum Energy Required: "<<result<<endl;
 
     return 0;
