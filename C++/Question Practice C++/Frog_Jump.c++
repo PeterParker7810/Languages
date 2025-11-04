@@ -28,7 +28,7 @@ int main(){
     }
 
     cout<<"\nElements in the array are:"<<endl;
-    for (int i = 0; i < size; i++) cout<<arr[i]<<" ";
+    for (int val : arr) cout<<val<<" ";
     cout<<endl;
 
     FrogJump(arr, solutions, 0, 0);
