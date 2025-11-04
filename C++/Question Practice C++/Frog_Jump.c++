@@ -32,8 +32,9 @@ int main(){
     cout<<endl;
 
     FrogJump(arr, solutions, 0, 0);
-    cout<<"\nPossible energy values for different paths are:"<<endl;
-    for (int val : solutions) cout<<val<<" ";
-    
+    int minEnergy = solutions[0];
+    for (int val : solutions) if (val < minEnergy) minEnergy = val;
+    cout<<"\nMinimum Energy Required: "<<minEnergy<<endl;
+
     return 0;
 }
