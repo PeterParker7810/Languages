@@ -23,7 +23,7 @@ int main(){
     vector<int> arr(size);
     vector<int> solutions;
     for (int i = 0; i < size; i++) {
-        cout<<"Enter Element "<<i+1<<": ";
+        cout<<"Enter the Element: ";
         cin>>arr[i];
     }
 
