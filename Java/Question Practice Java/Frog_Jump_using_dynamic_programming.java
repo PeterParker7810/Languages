@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class file{
+public class Frog_Jump_using_dynamic_programming{
     public static int FrogJump(int[] arr, int[] dp, int index) {
         if (index == 0) return 0;
         if (dp[index] != -1) return dp[index];
