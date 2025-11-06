@@ -2,15 +2,14 @@ import java.util.Scanner;
 public class file{
     public static int FrogJump(int[] arr, int[] dp, int index) {
         if (index == 0) return 0;
+        if (index == 1) return Math.abs(arr[1] - arr[0]);
         if (dp[index] != -1) return dp[index];
 
         int left = FrogJump(arr, dp, index - 1) + Math.abs(arr[index] - arr[index - 1]);
-        int right = Integer.MAX_VALUE;
-        if (index > 1) right = FrogJump(arr, dp, index - 2) + Math.abs(arr[index] - arr[index - 2]);
+        int right = FrogJump(arr, dp, index - 2) + Math.abs(arr[index] - arr[index - 2]);
 
         return dp[index] = Math.min(left, right);
     }
-
     public static void main(String[] args){
         Scanner input = new Scanner(System.in);
 
@@ -20,7 +19,6 @@ public class file{
         int[] arr = new int[size];
         int[] dp = new int[size];
         for (int i = 0; i < size; i++) dp[i] = -1;
-
         for (int i = 0; i < size; i++) {
             System.out.print("Enter the Element: ");
             arr[i] = input.nextInt();
