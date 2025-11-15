@@ -1,8 +1,5 @@
-
 import java.util.Scanner;
-
 public class Optimized_Bubble_Sort{
-
     public static void BubbleSort(int[] arr){
         for (int i = 0; i < arr.length-1; i++){
             boolean swapped = false;
@@ -13,8 +10,7 @@ public class Optimized_Bubble_Sort{
                     arr[j+1] = temp;
                     swapped = true;
                 }
-            }
-            if(!swapped) break;
+            } if(!swapped) break;
         }
     }
 
@@ -30,16 +26,10 @@ public class Optimized_Bubble_Sort{
         }
 
         System.out.println("\nBefore Sorting:");
-        for(int i = 0; i < size; i++){
-            System.out.print(arr[i] + " ");
-        }
+        for(int i = 0; i < size; i++) System.out.print(arr[i] + " ");
 
         BubbleSort(arr);
         System.out.println("\n\nAfter Sorting:");
-        for (int i = 0; i < size; i++){
-            System.out.print(arr[i] + " ");
-        }
-
-        input.close();
+        for (int i = 0; i < size; i++) System.out.print(arr[i] + " ");
     }
 }
