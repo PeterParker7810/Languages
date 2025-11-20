@@ -1,37 +1,44 @@
 #include<stdio.h>
-#include<stdlib.h>
-#include<limits.h>
 
-int FrogJump(int arr[], int size, int dp[]) {
-    if (size == 0) return 0;
-    if (size == 1) return abs(arr[1] - arr[0]); // base case for 2 stones
+int isSafe(int N, int board[20][20], int row, int col){
+    for (int i = 0; i < row; i++) if (board[i][col]) return 0;
 
-    if (dp[size] != -1) return dp[size];
-
-    int left = FrogJump(arr, size - 1, dp) + abs(arr[size] - arr[size - 1]);
-    int right = FrogJump(arr, size - 2, dp) + abs(arr[size] - arr[size - 2]);
-
-    return dp[size] = (left < right) ? left : right;
+    for (int i = 0; i < row; i++) for (int j = 0; j < N; j++)
+    if (((i+j == row+col) || (i-j == row-col)) && board[i][j]) return 0;
+    
+    return 1;
 }
 
-
-int main(){
-    int size, counter = 0;
-    printf("Enter the no of Elements: ");
-    scanf("%d", &size);
-
-    int arr[size], dp[size]; 
-    for (int i = 0; i < size; i++) dp[i] = -1;
-    for (int i = 0; i < size; i++) {
-        printf("Enter the Element: ");
-        scanf("%d", &arr[i]);
+void NQueen(int N, int board[20][20], int row, int* solutions){
+    if (row == N) {
+        (*solutions)++;
+        return;
     }
 
-    printf("\nThe Elements in the array are:\n");
-    for (int i = 0; i < size; i++) printf("%d ", arr[i]);
+    for (int col = 0; col < N; col++){
+        if (isSafe(N, board, row, col)){
+            // Place Queen
+            board[row][col] = 1;
 
-    int result = FrogJump(arr, size - 1, dp);
-    printf("\n\nMinimum Energy Required: %d", result);
+            // Move to next row
+            NQueen(N, board, row + 1, solutions);
+            
+            // Remove Queen
+            board[row][col] = 0;
+        }
+    }
+}
 
+int main(){
+    int N, solutions = 0;
+    printf("Enter the value of N: ");
+    scanf("%d", &N);
+
+    int board[20][20];
+    for (int i = 0; i < N; i++) for (int j = 0; j < N; j++) board[i][j] = 0;
+
+    NQueen(N, board, 0, &solutions);
+    printf("Total solutions for %d-Queens: %d\n", N, solutions);
+    
     return 0;
 }

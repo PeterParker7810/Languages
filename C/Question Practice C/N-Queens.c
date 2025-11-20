@@ -3,10 +3,9 @@
 int isSafe(int N, int board[20][20], int row, int col){
     for (int i = 0; i < row; i++) if (board[i][col]) return 0;
 
-    for (int i = 0; i < row; i++) for (int j = 0; j < N; j++) {
-        if (((i+j == row+col) || (i-j == row-col)) && board[i][j]) return 0;
-    }
-
+    for (int i = 0; i < row; i++) for (int j = 0; j < N; j++)
+    if (((i+j == row+col) || (i-j == row-col)) && board[i][j]) return 0;
+    
     return 1;
 }
 
