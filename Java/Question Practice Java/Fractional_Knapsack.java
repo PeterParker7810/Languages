@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class file{
+public class Fractional_Knapsack{
     public static float KnapSack(float[] profits, float[] weights, float[] pw, int capacity) {
         float result = 0;
 
