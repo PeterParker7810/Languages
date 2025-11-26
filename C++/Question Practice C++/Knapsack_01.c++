@@ -18,7 +18,7 @@ int KnapSack(vector<int> &profits, vector<int> &weights, int capacity, int size)
 
 int main() {
     int size, capacity;
-    cout<<"Enter the number of elements: ";
+    cout<<"Enter the no of elements: ";
     cin>>size;
 
     cout<<"Enter Knapsack capacity: ";
