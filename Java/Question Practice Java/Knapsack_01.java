@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class file{
+public class Knapsack_01{
     public static int max(int a, int b){
         return (a > b) ? a : b;
     }
