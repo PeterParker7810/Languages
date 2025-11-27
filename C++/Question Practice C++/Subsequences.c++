@@ -18,7 +18,6 @@ void SubSequence(int index, vector<int>& vec, vector<int>& ds) {
     SubSequence(index + 1, vec, ds);
 }
 
-
 int main(){
     int size;
     cout<<"Enter the no of Elements: ";

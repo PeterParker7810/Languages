@@ -28,9 +28,9 @@ int main() {
     vector<int> weights(size);
     for (int i = 0; i < size; i++) {
         cout<<"\nFor Element-"<<i+1<<endl;
-        cout<<"Profit: ";
+        cout<<"Enter Profit: ";
         cin>>profits[i];
-        cout<<"Weight: ";
+        cout<<"Enter Weight: ";
         cin>>weights[i];
     }
 
