@@ -1,56 +1,62 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
+#include <bits/stdc++.h>
 using namespace std;
 
-struct Job {int id, deadline, profit;};
-bool compare(Job a, Job b) {return a.profit > b.profit;}
-void jobSequencing(vector<Job> &jobs) {
-    int size = jobs.size(), maxDeadline = 0, totalProfit = 0, jobCount = 0;
-    if (size == 0) {
-        cout<<"No jobs available"<<endl;
-        return;
+struct DSU {
+    vector<int> parent, sz;
+
+    DSU(int n) {
+        parent.resize(n + 1);
+        sz.assign(n + 1, 1);
+        for (int i = 0; i <= n; i++) parent[i] = i;
     }
 
-    sort(jobs.begin(), jobs.end(), compare);
-    for (int i = 0; i < size; i++) if (jobs[i].deadline > maxDeadline)
-    maxDeadline = jobs[i].deadline;
+    int find(int x) {
+        if (parent[x] == x) return x;
+        return parent[x] = find(parent[x]); 
+    }
 
-    vector<int> slot(maxDeadline + 1, -1);
-    for (int i = 0; i < size; i++) {
-        for (int j = jobs[i].deadline; j > 0; j--) {
-            if (slot[j] == -1) {
-                slot[j] = i;
-                totalProfit += jobs[i].profit;
-                jobCount++;
-                break;
-            }
+    bool unite(int a, int b) {
+        a = find(a);
+        b = find(b);
+        if (a == b) return false;    
+        if (sz[a] < sz[b]) swap(a, b); 
+        parent[b] = a;
+        sz[a] += sz[b];
+        return true;
+    }
+};
+
+struct Edge {int u, v, w;};
+int main() {
+    int n, m;
+    cout<<"Enter number of vertices and edges: ";
+    cin>>n>>m;
+
+    vector<Edge> edges(m);
+    cout<<"Enter edges as: u v w (1-based vertices)\n";
+    for (int i = 0; i < m; i++) {
+        cin>>edges[i].u >> edges[i].v>>edges[i].w;
+    }
+
+    sort(edges.begin(), edges.end(), [](const Edge &a, const Edge &b) {
+        return a.w < b.w;
+    });
+
+    DSU dsu(n);
+    int mstWeight = 0;
+    vector<Edge> mst;
+
+    for (const auto &e : edges) {
+        if (dsu.unite(e.u, e.v)) {
+            mst.push_back(e);
+            mstWeight += e.w;
         }
     }
 
-    cout<<"\nSelected Jobs (in time order): ";
-    for (int i = 1; i <= maxDeadline; i++) if (slot[i] != -1) 
-    cout<<"J"<<jobs[slot[i]].id<<" ";
-    
-    cout<<"\nTotal Jobs Done: "<<jobCount<<endl;
-    cout<<"\nMaximum Profit: "<<totalProfit<<endl;
-}
+    cout<<"\nMST Edges (u v w):\n";
+    for (const auto &e : mst) {cout<<e.u<<" "<<e.v<<" "<<e.w<<"\n";}
 
-int main() {
-    int n;
-    cout<<"Enter no of jobs: ";
-    cin>>n;
-
-    vector<Job> jobs(n);
-    for (int i = 0; i < n; i++) {
-        jobs[i].id = i + 1; 
-        cout<<"\nFor Job-"<<jobs[i].id<<endl;
-        cout<<"Enter Profit: ";
-        cin>>jobs[i].profit;
-        cout<<"Enter Deadline: ";
-        cin>>jobs[i].deadline;
-    }
-    jobSequencing(jobs);
+    cout<<"Total weight of MST: "<<mstWeight<<"\n";
 
     return 0;
 }

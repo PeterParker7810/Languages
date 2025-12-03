@@ -13,25 +13,12 @@ void Merge(int arr[], int start, int mid, int end){
 
     int i = 0, j = 0, k = start;
     while (i < sizeL && j < sizeR){
-        if (Left[i] <= Right[j]){
-            arr[k] = Left[i];
-            i++;
-        } else{
-            arr[k] = Right[j];
-            j++;
-        }
-        k++;
+        if (Left[i] <= Right[j]) arr[k++] = Left[i++];
+        else arr[k++] = Right[j++];
     }
 
-    while (i < sizeL){
-        arr[k] = Left[i];
-        i++;
-        k++;
-    }  while (j < sizeR){
-        arr[k] = Right[j];
-        j++;
-        k++;
-    }
+    while (i < sizeL) arr[k++] = Left[i++];
+    while (j < sizeR) arr[k++] = Right[j++];
 
     delete[] Left;
     delete[] Right;
