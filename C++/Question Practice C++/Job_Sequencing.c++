@@ -8,7 +8,7 @@ bool compare(Job a, Job b) {return a.profit > b.profit;}
 void jobSequencing(vector<Job> &jobs) {
     int size = jobs.size(), maxDeadline = 0, totalProfit = 0, jobCount = 0;
     if (size == 0) {
-        cout << "No jobs available.\n";
+        cout<<"No jobs available"<<endl;
         return;
     }
 
@@ -32,8 +32,8 @@ void jobSequencing(vector<Job> &jobs) {
     for (int i = 1; i <= maxDeadline; i++) if (slot[i] != -1) 
     cout<<"J"<<jobs[slot[i]].id<<" ";
     
-    cout<<"\nTotal Jobs Done: "<<jobCount;
-    cout<<"\nMaximum Profit: "<<totalProfit<<"\n";
+    cout<<"\nTotal Jobs Done: "<<jobCount<<endl;
+    cout<<"\nMaximum Profit: "<<totalProfit<<endl;
 }
 
 int main() {
