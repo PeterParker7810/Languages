@@ -38,7 +38,7 @@ void jobSequencing(vector<Job> &jobs) {
 
 int main() {
     int n;
-    cout<<"Enter number of jobs: ";
+    cout<<"Enter no of jobs: ";
     cin>>n;
 
     vector<Job> jobs(n);
@@ -50,7 +50,6 @@ int main() {
         cout<<"Enter Deadline: ";
         cin>>jobs[i].deadline;
     }
-
     jobSequencing(jobs);
 
     return 0;
